@@ -5,6 +5,7 @@ import SpeakUp from "../assets/speakup.png";
 import MarketMaster from "../assets/marketmaster.png";
 import EscapeRoom from "../assets/escaperoom.png";
 import Closed from "../assets/closed.png";
+import { toast } from "react-hot-toast";
 
 function Registration() {
   const [formData, setFormData] = useState({
@@ -49,7 +50,7 @@ function Registration() {
       const result = await res.json();
 
       if (result.success) {
-        alert("Registration Successful!");
+        toast.success("Registration Successful!");
 
         setFormData({
           name: "",
@@ -59,12 +60,13 @@ function Registration() {
         });
 
         setSelectedEvents([]);
+        setEscapeRoomSelected(false);
       } else {
-        alert(result.message);
+        toast.error(result.message || "Registration Failed!");
       }
     } catch (err) {
       console.log(err);
-      alert("Something went wrong");
+      toast.error(err.message || "Registration Failed!");
     }
   };
 
@@ -82,7 +84,7 @@ function Registration() {
       Img: Funbate,
     },
     {
-      Name: "SPEAK UP (Pick & Speach)",
+      Name: "SPEAK UP (Pick & Speech)",
       Description:
         "Pick a surprise topic, speak with confidence, and own the spotlight!",
       Img: SpeakUp,
@@ -107,10 +109,16 @@ function Registration() {
 
   return (
     <>
-      <section className="w-full flex flex-col justify-center items-center">
+      <section id="registration" className="w-full flex flex-col justify-center items-center">
         <div className="mt-10 flex flex-col items-center justify-center gap-4 mb-5">
           <p className="text-(--primary) font-bold text-2xl">REGISTRATION</p>
-          <h1>Register for Freshers' Day 2026</h1>
+          <h1>Register for Freshers' Day Event 2026</h1>
+          <p className="text-(--text-light) p-5">
+            <span className="text-(--primary) font-semibold">NOTE: <br /> </span>You can
+            only register one time. Make sure to sumbit all the details
+            correctly <br />
+            Cick the checkbox to select the event you want to participate in.
+          </p>
         </div>
 
         <div
@@ -134,6 +142,7 @@ function Registration() {
                     type="checkbox"
                     checked={selectedEvents.includes(Event.Name)}
                     onChange={() => handleEventChange(Event.Name)}
+                    className="accent-(--primary) w-5 h-5 "
                   />
 
                   <label>Participate</label>
@@ -188,7 +197,7 @@ function Registration() {
           </div>
         </div>
 
-                <form
+        <form
           onSubmit={handleSubmit}
           className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-20"
         >
@@ -296,7 +305,6 @@ function Registration() {
             Register Now
           </button>
         </form>
-
       </section>
     </>
   );

@@ -17,3 +17,7 @@
 
   --shadow: rgba(0,0,0,0.08);
 }
+
+html{
+  scroll-behavior: smooth;
+}

@@ -29,12 +29,6 @@ function Hero() {
             Register Now
           </a>
 
-          <a 
-          href="#events"
-          className="mt-8 inline-flex items-center justify-center px-8 py-4 bg-(--background) hover:bg-(--primary) text-(--text) hover:text-(--background) rounded-lg font-semibold transition border-2 border-(--primary)"
-          >
-            Explore Events
-          </a>
           </div>
 
 
