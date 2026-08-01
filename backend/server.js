@@ -4,19 +4,14 @@ import studentRoutes from "./routes/studentRoutes.js";
 import cors from "cors";
 import adminRoutes from "./routes/adminRoute.js";
 
-
-
-
-
-
 const app = express();
 
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://freshersday2026.vercel.app/",
-  })
-); 
+    origin: "https://freshersday2026.vercel.app",
+  }),
+);
 
 const PORT = 5500;
 
