@@ -15,6 +15,8 @@ function Registration() {
     rollNo: "",
   });
 
+  const [status, setStatus] = useState("idle");
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -39,18 +41,23 @@ function Registration() {
     };
 
     try {
-      const res = await fetch("https://fresher-s-day-2026.onrender.com/api/students/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://fresher-s-day-2026.onrender.com/api/students/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         },
-        body: JSON.stringify(data),
-      });
+      );
 
       const result = await res.json();
 
       if (result.success) {
         toast.success("Registration Successful!");
+
+        setStatus("idle");
 
         setFormData({
           name: "",
@@ -63,10 +70,20 @@ function Registration() {
         setEscapeRoomSelected(false);
       } else {
         toast.error(result.message || "Registration Failed!");
+        setStatus("failed");
+
+        setTimeout(() => {
+          setStatus("idle");
+        }, 2000);
       }
     } catch (err) {
       console.log(err);
       toast.error(err.message || "Registration Failed!");
+      setStatus("failed");
+
+      setTimeout(() => {
+        setStatus("idle");
+      }, 2000);
     }
   };
 
@@ -109,13 +126,18 @@ function Registration() {
 
   return (
     <>
-      <section id="registration" className="w-full flex flex-col justify-center items-center">
+      <section
+        id="registration"
+        className="w-full flex flex-col justify-center items-center"
+      >
         <div className="mt-10 flex flex-col items-center justify-center gap-4 mb-5">
           <p className="text-(--primary) font-bold text-2xl">REGISTRATION</p>
           <h1>Register for Freshers' Day Event 2026</h1>
           <p className="text-(--text-light) p-5">
-            <span className="text-(--primary) font-semibold">NOTE: <br /> </span>You can
-            only register one time. Make sure to sumbit all the details
+            <span className="text-(--primary) font-semibold">
+              NOTE: <br />{" "}
+            </span>
+            You can only register one time. Make sure to sumbit all the details
             correctly <br />
             Cick the checkbox to select the event you want to participate in.
           </p>
@@ -190,6 +212,7 @@ function Registration() {
                 disabled={selectedEvents.length < 2}
                 checked={escapeRoomSelected}
                 onChange={(e) => setEscapeRoomSelected(e.target.checked)}
+                className="accent-(--primary) w-5 h-5 "
               />
 
               <label>Participate</label>
@@ -290,7 +313,7 @@ function Registration() {
                 </span>
               ))}
 
-              {selectedEvents.length >= 2 && (
+              {escapeRoomSelected && (
                 <span className="bg-green-700 text-white px-4 py-2 rounded-full">
                   Escape Room
                 </span>
@@ -300,9 +323,22 @@ function Registration() {
 
           <button
             type="submit"
-            className="mt-8 w-full bg-(--primary) text-white py-4 rounded-lg hover:bg-(--primary-hover)"
+            disabled={status === "loading"}
+            className={`mt-8 w-full  text-white py-4 rounded-lg hover:bg-(--primary-hover)
+                ${
+                  status === "loading"
+                    ? "bg-blue-600 cursor-not-allowed"
+                    : status === "failed"
+                      ? "bg-red-600 hover:bg-red-700"
+                      : "bg-(--primary) hover:bg-(--primary-hover)"
+                }
+                `}
           >
-            Register Now
+            {status === "loading"
+              ? "Registering..."
+              : status === "failed"
+                ? "Registration Failed"
+                : "Register Now"}
           </button>
         </form>
       </section>
