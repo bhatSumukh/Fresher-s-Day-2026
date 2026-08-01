@@ -139,7 +139,8 @@ function Registration() {
             </span>
             You can only register one time. Make sure to sumbit all the details
             correctly <br />
-            Cick the checkbox to select the event you want to participate in.
+            Cick the checkbox to select the event you want to participate in. <br />
+            After clicking <span className="font-semibold text-(--text)">Register</span>, please wait a few seconds while we process your registration. Do not refresh or close the page.
           </p>
         </div>
 
