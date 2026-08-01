@@ -39,7 +39,7 @@ function Registration() {
     };
 
     try {
-      const res = await fetch("http://localhost:5500/api/students/register", {
+      const res = await fetch("https://fresher-s-day-2026.onrender.com/api/students/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

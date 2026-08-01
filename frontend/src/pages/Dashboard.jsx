@@ -5,7 +5,7 @@ function Dashboard() {
 
   const fetchStudents = async () => {
     try {
-      const res = await fetch("http://localhost:5500/api/students");
+      const res = await fetch("https://fresher-s-day-2026.onrender.com/api/students");
 
       const result = await res.json();
 

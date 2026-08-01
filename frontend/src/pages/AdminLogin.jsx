@@ -20,7 +20,7 @@ function AdminLogin() {
      e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5500/api/admin/login", {
+    const res = await fetch("https://fresher-s-day-2026.onrender.com/api/admin/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
