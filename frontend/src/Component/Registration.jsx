@@ -93,24 +93,28 @@ function Registration() {
       Description:
         "Think fast, answer smart, and prove you're the ultimate quiz champion!",
       Img: Fizz,
+      Date: "4th Aug",
     },
     {
       Name: "FUNBATE (Debate)",
       Description:
         "Share your funniest arguments, laugh together, and let your creativity shine!",
       Img: Funbate,
+      Date: "4th Aug",
     },
     {
       Name: "SPEAK UP (Pick & Speech)",
       Description:
         "Pick a surprise topic, speak with confidence, and own the spotlight!",
       Img: SpeakUp,
+      Date: "5th Aug",
     },
     {
       Name: "MARKET MASTER (Product Pitch)",
       Description:
         "Turn crazy ideas into winning pitches and sell like a true entrepreneur!",
       Img: MarketMaster,
+      Date: "6th Aug",
     },
   ];
 
@@ -162,6 +166,8 @@ function Registration() {
 
                 <h1 className="text-xl font-semibold mt-3">{Event.Name}</h1>
 
+                <p className="text-(--text)">{Event.Date}</p>
+
                 <p className="text-(--text-light)">{Event.Description}</p>
 
                 <div className="flex items-center gap-2 mt-4">
@@ -180,15 +186,21 @@ function Registration() {
         </div>
         <div className="flex flex-col justfiy-center items-center mt-5 w-full mb-15">
           <div className="mt-10">
-            <h1 className="text-(--text-light) text-2xl">
-              The Escape Room Door is Locked
-            </h1>
-            <h1 className="text-(--text) text-2xl font-semibold">
-              Join any 2 Events to find the{" "}
-              <span className="text-(--primary) font-bold text-2xl">
-                KEY...!
-              </span>
-            </h1>
+            {selectedEvents.length < 2 ? (
+              <h1 className="text-(--text) font-semibold text-center">
+                Join any 2 Events to find the{" "}
+                <span className="text-(--primary) font-bold">KEY...!</span>{" "}
+                <br />
+                The Escape Room Door is Locked
+              </h1>
+            ) : (
+              <h1 className="text-(--text) font-semibold text-center">
+                🗝️ You Found the{" "}
+                <span className="text-(--primary) font-bold">Key..!</span>
+                <br />
+                Check the box below if you'd like to participate.
+              </h1>
+            )}
           </div>
 
           <div className="relative w-full max-w-sm p-4 border border-(--border) rounded-xl shadow-md m-5">
@@ -196,7 +208,7 @@ function Registration() {
 
             {/* Overlay */}
             {selectedEvents.length < 2 && (
-              <div className="absolute inset-0 bg-black/40 rounded-xl"></div>
+              <div className="absolute inset-0 bg-(--primary)/20 rounded-xl"></div>
             )}
 
             {/* Lock Image */}
@@ -206,6 +218,7 @@ function Registration() {
               </div>
             )}
             <h1 className="text-xl font-semibold mt-3">Escape Room</h1>
+            <p className="text-(--text)">7th Aug</p>
             <p className="text-(--text-light)">
               Some doors aren't meant to stay locked... Dare to discover what
               lies beyond?
