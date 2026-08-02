@@ -139,8 +139,12 @@ function Registration() {
             </span>
             You can only register one time. Make sure to sumbit all the details
             correctly <br />
-            Cick the checkbox to select the event you want to participate in. <br />
-            After clicking <span className="font-semibold text-(--text)">Register</span>, please wait a few seconds while we process your registration. Do not refresh or close the page.
+            Cick the checkbox to select the event you want to participate in.{" "}
+            <br />
+            After clicking{" "}
+            <span className="font-semibold text-(--text)">Register</span>,
+            please wait a few seconds while we process your registration. Do not
+            refresh or close the page.
           </p>
         </div>
 
@@ -228,10 +232,14 @@ function Registration() {
           <h2 className="text-3xl font-bold mb-8 text-center">
             Student Registration
           </h2>
+          <p className="p-2">
+            After clicking{" "}
+            <span className="font-semibold text-(--text)">Register</span>,
+            please wait a few seconds while we process your registration. Do not
+            refresh or close the page.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Name */}
-
             <div>
               <label className="font-medium">Full Name</label>
 
@@ -244,8 +252,6 @@ function Registration() {
                 className="w-full border rounded-lg p-3 mt-2"
               />
             </div>
-
-            {/* Class */}
 
             <div>
               <label className="font-medium">Class</label>
