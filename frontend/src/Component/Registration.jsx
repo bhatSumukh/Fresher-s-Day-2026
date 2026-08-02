@@ -195,7 +195,7 @@ function Registration() {
               </h1>
             ) : (
               <h1 className="text-(--text) font-semibold text-center">
-                🗝️ You Found the{" "}
+                You Found the{" "}
                 <span className="text-(--primary) font-bold">Key..!</span>
                 <br />
                 Check the box below if you'd like to participate.
