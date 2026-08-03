@@ -58,6 +58,7 @@ function Dashboard() {
                     <th className="border-2 border-(--border) text-start p-1">NAME</th>
                     <th className="border-2 border-(--border)  text-start p-1">CLASS</th>
                     <th className="border-2 border-(--border) text-start p-1">RollNo</th>
+                    <th className="border-2 border-(--border) text-start p-1">Phone</th>
                   </tr>
                 </thead>
                 <tbody className="p-2">
@@ -66,6 +67,7 @@ function Dashboard() {
                       <td className="border-2 border-(--border) p-1">{student.name}</td>
                       <td className="border-2 border-(--border) p-1">{student.class}</td>
                       <td className="border-2 border-(--border) p-1">{student.rollNo}</td>
+                      <td className="border-2 border-(--border) p-1">{student.phone}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -4,7 +4,7 @@ export const registerStudent = async (req, res) => {
   try {
     const { name, class: studentClass, section, rollNo, events } = req.body;
 
-    if (!name || !studentClass || !section || !rollNo || !events) {
+    if (!name || !phone || !studentClass || !section || !rollNo || !events) {
       return res.status(400).json({
         success: false,
         Message: "ALl fields are required",
@@ -23,6 +23,7 @@ export const registerStudent = async (req, res) => {
 
     const newStudent = await Student.create({
       name,
+      phone,
       class: studentClass,
       section,
       rollNo,

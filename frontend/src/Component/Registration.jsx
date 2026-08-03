@@ -10,6 +10,7 @@ import { toast } from "react-hot-toast";
 function Registration() {
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     class: "",
     section: "",
     rollNo: "",
@@ -61,6 +62,7 @@ function Registration() {
 
         setFormData({
           name: "",
+          phone: "",
           class: "",
           section: "",
           rollNo: "",
@@ -316,6 +318,22 @@ function Registration() {
                 className="w-full border rounded-lg p-3 mt-2"
               />
             </div>
+          </div>
+
+          <div>
+            <label className="font-medium">Phone Number</label>
+
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter Phone Number"
+              required
+              maxLength={10}
+              pattern="[0-9]{10}"
+              className="w-full border rounded-lg p-3 mt-2"
+            />
           </div>
 
           {/* Selected Events */}
