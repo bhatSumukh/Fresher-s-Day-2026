@@ -393,7 +393,7 @@ function Registration() {
 
             <a
               href="tel:+919019177440"
-              className="font-semibold text-blue-600 hover:underline"
+              className="font-semibold text-(--primary) hover:underline"
             >
               +91 9019177440
             </a>
