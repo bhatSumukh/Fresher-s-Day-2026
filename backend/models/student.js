@@ -11,7 +11,6 @@ const studentSchema = new mongoose.Schema(
     phone: {
       type: String,
       required: true,
-      match: [/^[0-9]{10}$/, "Please enter a valid 10-digit phone number"],
     },
 
     class: {
