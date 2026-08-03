@@ -2,7 +2,14 @@ import Student from "../models/student.js";
 
 export const registerStudent = async (req, res) => {
   try {
-    const { name, class: studentClass, section, rollNo, events } = req.body;
+    const {
+      name,
+      phone,
+      class: studentClass,
+      section,
+      rollNo,
+      events,
+    } = req.body;
 
     if (!name || !phone || !studentClass || !section || !rollNo || !events) {
       return res.status(400).json({
