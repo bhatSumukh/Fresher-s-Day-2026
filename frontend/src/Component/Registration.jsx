@@ -30,6 +30,13 @@ function Registration() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (selectedEvents.length === 0 && !escapeRoomSelected) {
+      toast.error("Please select at least one event to register.");
+      return;
+    }
+
+    setStatus("loading");
+
     let events = [...selectedEvents];
 
     if (escapeRoomSelected) {
@@ -320,7 +327,7 @@ function Registration() {
             </div>
           </div>
 
-          <div>
+          <div className="pt-4">
             <label className="font-medium">Phone Number</label>
 
             <input

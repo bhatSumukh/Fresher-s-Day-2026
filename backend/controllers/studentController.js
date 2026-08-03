@@ -17,6 +17,12 @@ export const registerStudent = async (req, res) => {
         Message: "ALl fields are required",
       });
     }
+    if (events.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Please select at least one event.",
+      });
+    }
     const alreadyExist = await Student.findOne({ rollNo });
 
     const escapeRoom = events.length >= 2;
