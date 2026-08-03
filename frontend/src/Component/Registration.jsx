@@ -385,6 +385,19 @@ function Registration() {
                 ? "Registration Failed"
                 : "Register Now"}
           </button>
+          <div className="bg-(--primary)/10 border border-(--border) rounded-lg p-3 mt-4">
+            <p className="text-sm text-(--text-light) mt-1">
+              If you experience any issues during registration, please contact
+              or WhatsApp:
+            </p>
+
+            <a
+              href="tel:+919019177440"
+              className="font-semibold text-blue-600 hover:underline"
+            >
+              +91 9019177440
+            </a>
+          </div>
         </form>
       </section>
     </>
