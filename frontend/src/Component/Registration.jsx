@@ -240,7 +240,7 @@ function Registration() {
 
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-20"
+          className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-20 border border-(--border)"
         >
           <h2 className="text-3xl font-bold mb-8 text-center">
             Student Registration
@@ -344,7 +344,7 @@ function Registration() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className={`mt-8 w-full  text-white py-4 rounded-lg hover:bg-(--primary-hover)
+            className={`border border-(--accent-border) mt-8 w-full  text-white py-4 rounded-lg hover:bg-(--primary-hover)
                 ${
                   status === "loading"
                     ? "bg-blue-600 cursor-not-allowed"
